@@ -1,0 +1,254 @@
+:root {
+    --c1: #cddc39;
+    --shadow: #723ab7;
+    --speed: 0.75s;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #150c29;
+    font-family: 'Fredoka One', cursive;
+    perspective: 100vmin;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+.container>div {
+    float: left;
+    width: 100%;
+}
+.obrigada,
+.numero,
+.seguidores {
+    font-size: 12vmin;
+    text-align: center;
+    color: #000000a1;
+    height: 25vh;
+    line-height: 25vh;
+    text-shadow: 0 -0.9vmin 0.1vmin var(--shadow);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.obrigada {
+    text-shadow: 0.15vmin -0.25vmin 0.1vmin var(--shadow), 
+        0.25vmin -0.5vmin 0.1vmin #74319d, 
+        0.35vmin -0.75vmin 0.1vmin #5b277e, 
+        0.45vmin -1vmin 0.1vmin #421e62, 
+        0.65vmin -1.15vmin 0.1vmin #331546;
+    filter: hue-rotate(60deg) brightness(1.5);
+    animation: t-color 0.75s ease -0.375s infinite alternate;
+}
+.seguidores {
+    z-index: -1;
+    position: relative;
+    margin-top: -5vmin;
+    text-shadow: 0.15vmin -0.25vmin 0.1vmin var(--shadow), 
+        0.25vmin -0.5vmin 0.1vmin #57319d, 
+        0.35vmin -0.75vmin 0.1vmin #46277e, 
+        0.45vmin -1vmin 0.1vmin #361e62, 
+        0.65vmin -1.15vmin 0.1vmin #271546;
+    filter: hue-rotate(-50deg) brightness(0.75) contrast(1.05);
+    animation: t-color 0.75s ease 0s infinite alternate;
+}
+@keyframes t-color {
+    0% {
+        filter: hue-rotate(60deg) brightness(1.5);
+    }
+
+    100% {
+        filter: hue-rotate(-50deg) brightness(0.75) contrast(1.05);
+    }
+}
+.numero {
+    height: 50vh;
+    display: flex;
+    font-size: 35vmin;
+    justify-content: center;
+    align-items: center;
+    line-height: 40vmin;
+    transform: rotateY(0deg);
+    color: var(--c1);
+    color: #2196f3;
+    margin-top: 5vmin;
+}
+.quadrados {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.quadrado {
+    width: 25vmin;
+    text-align: center;
+    animation: bouncing var(--speed) cubic-bezier(0.4, 0, 1, 1) -1.2s infinite alternate;
+    transition: all 0.5s ease 0s;
+    transform-origin: center bottom;
+    line-height: 35vmin;
+}
+.quadrado+.quadrado {
+    animation-delay: -1.075s;
+}
+
+.quadrado+.quadrado+.quadrado {
+    animation-delay: -1.025s;
+}
+.quadrado+.quadrado+.quadrado+.quadrado {
+    animation-delay: -0.975s;
+}
+.quadrado span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    left: 0;
+    opacity: 0.9;
+    animation: loading var(--speed) 
+        cubic-bezier(0.4, 0, 1, 1) 
+        calc(calc(var(--speed) / 8) * -1) 
+        infinite alternate;
+}
+@keyframes loading {
+    0% {
+        margin-top: -8vmin;
+    }
+
+    90%,
+    100% {
+        margin-top: 0vmin;
+    }
+}
+@keyframes bouncing {
+
+    0%,
+    80% {
+        transform: scaleY(1);
+    }
+
+    100% {
+        transform: scaleY(0.9);
+    }
+}
+span:nth-child(1) {
+    animation-delay: -0.55s;
+    transform: translate3d(-0.25vmin, 0.25vmin, 0.25vmin);
+    filter: hue-rotate(90deg);
+}
+
+span:nth-child(2) {
+    animation-delay: -0.6s;
+    transform: translate3d(-0.5vmin, 0.5vmin, 0.5vmin);
+    filter: hue-rotate(80deg);
+}
+span:nth-child(3) {
+    animation-delay: -0.65s;
+    transform: translate3d(-0.75vmin, 0.75vmin, 0.75vmin);
+    filter: hue-rotate(70deg);
+}
+
+span:nth-child(4) {
+    animation-delay: -0.7s;
+    transform: translate3d(-1vmin, 1vmin, 1vmin);
+    filter: hue-rotate(60deg);
+}
+
+span:nth-child(5) {
+    animation-delay: -0.75s;
+    transform: translate3d(-1.25vmin, 1.25vmin, 1.25vmin);
+    filter: hue-rotate(50deg);
+}
+
+span:nth-child(6) {
+    animation-delay: -0.8s;
+    transform: translate3d(-1.5vmin, 1.5vmin, 1.5vmin);
+    filter: hue-rotate(40deg);
+}
+
+span:nth-child(7) {
+    animation-delay: -0.85s;
+    transform: translate3d(-1.75vmin, 1.75vmin, 1.75vmin);
+    filter: hue-rotate(30deg);
+}
+
+span:nth-child(8) {
+    animation-delay: -0.9s;
+    transform: translate3d(-2vmin, 2vmin, 2vmin);
+    filter: hue-rotate(20deg);
+}
+
+span:nth-child(9) {
+    animation-delay: -0.95s;
+    transform: translate3d(-2.25vmin, 2.25vmin, 2.25vmin);
+    filter: hue-rotate(10deg);
+}
+
+span:nth-child(10) {
+    animation-delay: -1s;
+    transform: translate3d(-2.5vmin, 2.5vmin, 2.5vmin);
+    filter: hue-rotate(0deg);
+    color: #000;
+    text-shadow: 0 0 0.25vmin #ffffff, 
+        0 0 0.25vmin #ffffff, 
+        0 0 0.25vmin #ffffff;
+}
+.quadrados:before {
+    content: "";
+    position: absolute;
+    width: 130vmin;
+    height: 100vmin;
+    transform: rotateX(70deg) rotateY(0deg) translateZ(13.5vmin) translateY(-30vmin) translateX(5vmin);
+    left: calc(50% - 65vmin);
+    --u: 2vmin;
+    --l: calc(calc(var(--u) * 10) / 50);
+    --c1: #9f2dff;
+    --shadow: #5419ca;
+    --c3: #c90cea;
+    --w1: #fff;
+    --w2: #fff8;
+    --b: #000;
+    --gp: 50%/ calc(var(--u) * 10) calc(var(--u) * 10);
+    background: linear-gradient(to right, var(--b) 2%,
+        #fff0 2% 48%, var(--b) 48% 52%,
+        #fff0 52% 98%, var(--b) 98%) var(--gp), 
+        linear-gradient(to bottom, 
+        #fff0 0 calc(var(--l) * 23.5), 
+        var(--w1) calc(var(--l) * 24),
+        #fff0 calc(var(--l) * 24) calc(var(--l) * 48.5), 
+        var(--w1) calc(var(--l) * 49),
+        #fff0 calc(var(--l) * 49) 100%) var(--gp), 
+        linear-gradient(to bottom, var(--b) 2%, 
+        #fff0 2% 48%, var(--b) 48% 52%, 
+        #fff0 52% 98%, var(--b) 98%) var(--gp), 
+        radial-gradient(circle at 75% 75%, var(--c3) 0 0%, 
+        #fff0 26% 100%) var(--gp), radial-gradient(circle at 75% 25%, 
+        var(--w2) 0 0%, #fff0 26% 100%) var(--gp), 
+        radial-gradient(circle at 25% 75%, 
+        var(--w2) 0 0%, #fff0 26% 100%) var(--gp), 
+        radial-gradient(circle at 25% 75%, 
+        var(--c3) 0 0%, #fff0 26% 100%) var(--gp), 
+        radial-gradient(circle at 75% 75%, 
+        var(--w2) 0 0%, #fff0 26% 100%) var(--gp), 
+        radial-gradient(circle at 25% 25%,
+        var(--w2) 0 0%, #fff0 26% 100%) var(--gp), 
+        conic-gradient(from 0deg at 50% 50%, var(--c1) 0 20%, 
+        var(--shadow) 30% 45%, var(--c1) 55% 70%, var(--shadow) 80% 100%) var(--gp);
+    border-radius: 5vmin;
+    box-shadow: 0 0 3vmin 5vmin #000 inset, 0 0 10vmin 10vmin #000 inset, 0 0 15vmin 15vmin #000 inset;
+    box-sizing: border-box;
+    border: 1vmin solid #000;
+}
+.quadrado:nth-child(1) span {
+    text-align: right;
+}
